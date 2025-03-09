@@ -2,17 +2,78 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    align-content: center;
     height: 100vh;
+    min-height: 896px;
     width: 100vw;
+    min-width: 322px;
     background-color: #F1EDE0;
-    overflow-x: hidden;
+    overflow: hidden; /* Add this to hide overflow */
 }
 
-img {
-    max-width: 98%;
-    height: 90%;
-    object-fit: cover;
-    object-position: center;
+.container .backgroundImg,
+.container .overlay {
+    grid-area: 1 / 1; /* Place both the image and the overlay in the same grid cell */
+}
+
+.backgroundImg {
+    width: 100%; /* Make the image flex to fit the width */
+    height: auto; /* Maintain the aspect ratio */
+    min-height: 70vh;
+    max-height: 100vh; /* Ensure the image height does not exceed the viewport height */
+    object-fit: cover; /* This will trim the image if the width exceeds the max width */
     border-radius: 10px;
+}
+
+.overlay {
+    position: absolute; /* Position the overlay absolutely within the container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(236, 236, 236, 0.5); /* Add a background color with some transparency */
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    min-height: 163px;
+    max-height: 220px;
+}
+
+.logo {
+    max-height: 100%;
+    opacity: 100%;
+    border-radius: 100%;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 2px 4px 8px;
+}
+
+.logo-container h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000000;
+}
+
+.summary {
+    margin: 0 10px 0 10px;
+    font-family: 'Belleza', sans-serif;
+    font-size: 1.2rem;
+    background-color: white;
+    border: 1px solid #065e69;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 50px;
+    box-shadow: 2px 4px 8px;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
 }
