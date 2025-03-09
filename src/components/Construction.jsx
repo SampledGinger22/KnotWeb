@@ -12,7 +12,7 @@ const Construction = () => {
                     <img src={Logo} className='logo'/>
                     <h1>Website Under Construction</h1>
                 </div>
-                <p className='summary'>In the meantime, please check out our <a href="https://www.youtube.com">YouTube</a> or <a href="https://www.example.com/signup">Sign Up for our Mail List</a></p>
+                <p className='summary'>In the meantime, please check out our <a href="https://www.youtube.com/@JourneyWithTheWeavers" target="_blank" rel="noopener noreferrer">YouTube</a> or <a href="http://eepurl.com/i80yzI" target="_blank" rel="noopener noreferrer">Sign Up for our Mail List</a></p>
             </div>
         </div>
     );
