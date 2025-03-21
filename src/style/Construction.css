@@ -2,8 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    min-height: 896px;
+    height: 100%;
     width: 100vw;
     min-width: 322px;
     background-color: #F1EDE0;
@@ -17,10 +16,10 @@
 
 .backgroundImg {
     width: 100%; /* Make the image flex to fit the width */
-    height: auto; /* Maintain the aspect ratio */
+    height: auto; 
     min-height: 70vh;
     max-height: 100vh; /* Ensure the image height does not exceed the viewport height */
-    object-fit: cover; /* This will trim the image if the width exceeds the max width */
+    object-fit: cover;
     border-radius: 10px;
 }
 

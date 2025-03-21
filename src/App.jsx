@@ -1,17 +1,32 @@
-import { useState } from 'react'
-import './App.css'
-import Construction from './components/Construction'
+import { useState, useEffect } from 'react';
+import './App.css';
+import Header from './components/Header';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isGiveVisible, setIsGiveVisible] = useState(false);
+
+  useEffect(() => {
+    if (isGiveVisible) {
+      document.body.style.overflow = 'hidden'; // Disable scrolling
+    } else {
+      document.body.style.overflow = 'auto'; // Enable scrolling
+    }
+    return () => {
+      document.body.style.overflow = 'auto'; // Reset on unmount
+    };
+  }, [isGiveVisible]);
+
+  const toggleGivePopup = () => {
+    setIsGiveVisible(!isGiveVisible);
+  };
 
   return (
     <>
       <div>
-        <Construction />  
+        <Header isGiveVisible={isGiveVisible} toggleGivePopup={toggleGivePopup} />
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
