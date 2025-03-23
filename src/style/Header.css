@@ -10,43 +10,62 @@
 }
 
 .container {
-    position: fixed; /* Fix the container to the top of the page */
-    top: 0; /* Align the container to the top of the page */
+    position: relative; /* Fix the container to the top of the page */
     display: flex;
     flex-direction: column;
-    height: 50vh;
-    width: 95%;
+    height: auto;
+    min-height: fit-content;
+    width: 100%;
+    min-width: fit-content;;
     border-radius: 10px;
     z-index: 1; /* Place the container above the background image */
-    left: 2.5%;
+    left: 0;
 }
 
 .backgroundImg {
     position: fixed; /* Position the image fixed to the viewport */
     top: 0; /* Align the top of the image with the top of the viewport */
     left: 0;
-    width: 100%;
+    width: 100%; /* Adjust width to account for the 3px border on both sides */
     height: 55vh; /* Allow the height to adjust based on the image's aspect ratio */
     object-fit: cover; /* Ensure the entire image is visible without cropping */
     overflow: hidden;
     z-index: 0; /* Place the image behind all other elements */
     object-position: 0 40%; /* Position the image at the top center */
     border: solid 3px black;
+    box-sizing: border-box; /* Ensure border is included in the element's dimensions */
 }
 
 .lowerHeader {
-    position: relative; /* Ensure content is positioned relative to the container */
-    top: 4vh;
+    position: absolute; /* Position the lowerHeader relative to the image */
+    top: 55vh; /* Start immediately after the bottom of the image */
+    left: 0; /* Flush to the left */
+    width: 100%; /* Full width */
+    background-color: #065e69; /* Background color for the bar */
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Center the content */
+    align-items: center;
+    padding: 0; /* Remove padding */
+    z-index: 1; /* Ensure it appears above the background image */
+    height: 60px; /* Explicitly set height */
+    min-height: fit-content;
+    buffer: 0;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's dimensions */
+}
+
+.top-overlay {
+    position: absolute; /* Match the fixed positioning of the background image */
+    top: 0; /* Align the top-overlay with the top of the background image */
+    left: 0;
+    width: 100%;
+    height: 15%; /* 10% of the height of the background image */
+    background-color: rgba(128, 128, 128, 0.7); /* Semi-transparent grey */
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
-    height: 100%;
-    padding: 8px 0;
-    border-width: 1px 1px 0 1px;
-    color: black;
-    border-radius: 10px;
+    z-index: 1; /* Ensure it appears above the background image */
 }
 
 .lowerNav {
@@ -54,48 +73,74 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 99%; /* Full width */
+    height: 100%; /* Explicitly match the parent's height */
+    min-height: fit-content;
     min-width: 220px;
-    max-width: 55%;
-    padding: 10px;
-    gap: 10px;
+    padding: 0; /* Remove padding */
+    gap: 0; /* Remove gap between elements */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's dimensions */
+    background-color: none;
 }
 
-.lowerNav a, .lowerNav button {
+.lowerNav a {
     flex: 0; /* Prevent items from stretching */
     font-family: 'Belleza', sans-serif;
     font-size: 1.3rem;
-    width: auto; /* Set width to match the text */
+    width: auto; /* Keep current width */
     min-width: fit-content;
-    font-weight: bold;
-    color: black;
-    margin: 0 10px;
-    padding: 10px;
+    font-weight: bolder;
+    color: white;
+    margin: 0; /* Remove margin */
+    padding: 3px 8px; /* Add 3px of padding */
+    height: 100%; /* Match the height of the containing div */
     text-decoration: none;
-    box-shadow: 2px 4px 6px black;
-    border-radius: 10px;
-    background-color: white;
-    border: 1px solid #065e69;
+    background-color: none; /* Match the background color of the containing div */
     cursor: pointer;
     line-height: 1.5;
     box-sizing: border-box;
+    box-shadow: none; /* Remove box-shadow */
+    border-radius: 0; /* Remove border-radius */
+    align-content: center;
+    transition: all 0.2s ease; /* Add smooth transition */
+    border: 1px #42898e solid;
 }
 
-.lowerNav a:hover, .lowerNav button:hover {
-    background-color: #f0f0f0;
-    box-shadow: 2px 4px 8px black;
-    transform: translateY(1px);
+.lowerNav a:hover {
+    background-color: #42898e;
+    transform: translateY(1px); /* Slightly move down to enhance the effect */
 }
 
 .logo {
-    width: 15%;
-    min-width: 155px;
+    height: 70%; /* Scale the logo to 80% of the header bar's height */
+    width: auto; /* Maintain aspect ratio */
     border-radius: 100%;
     background-color: white;
-    padding: 10px;
+    margin: 15px 0;
+    padding: 5px;
     box-shadow: 2px 4px 8px black;
-    margin: 0 0 1rem 1rem;
-    max-height: 90%;
+}
+
+.give-now-button {
+    height: calc(fit-content + 6px); /* Scale the button to fit content */
+    padding: 0 20px; /* Adjust padding for consistent height */
+    font-family: 'Belleza', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    background-color: #DC3545;
+    cursor: pointer;
+    line-height: 1.5;
+    box-sizing: border-box;
+    box-shadow: none;
+    border: none;
+    transition: all 0.2s ease; /* Add smooth transition */
+}
+
+.give-now-button:hover {
+    background-color: #BD2130;
+    transform: translateY(1px); /* Slightly move down to enhance the effect */
 }
 
 .summary {
