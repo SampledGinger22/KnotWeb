@@ -9,7 +9,10 @@ const Header = ({ isGiveVisible, toggleGivePopup }) => {
     <div>
       <img src={CastleImage} alt="Castle" className="backgroundImg" />
       <div className="top-overlay">
-        <img src={Logo} className="logo" />
+        <div className="logoContainer">
+          <img src={Logo} className="logo" />
+          <h1 className="header-title">Gods Knot Dead</h1>
+        </div>
         <button className="give-now-button" onClick={toggleGivePopup}>
           Donate
         </button>

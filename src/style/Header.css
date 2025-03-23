@@ -50,7 +50,6 @@
     z-index: 1; /* Ensure it appears above the background image */
     height: 60px; /* Explicitly set height */
     min-height: fit-content;
-    buffer: 0;
     box-sizing: border-box; /* Ensure padding and border are included in the element's dimensions */
 }
 
@@ -125,7 +124,7 @@
     height: calc(fit-content + 6px); /* Scale the button to fit content */
     padding: 0 20px; /* Adjust padding for consistent height */
     font-family: 'Belleza', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: white;
     text-decoration: none;
@@ -154,6 +153,24 @@
     font-weight: bold;
 }
 
+.logoContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: 100%;
+}
+
+.header-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: white;
+    margin-left: 10px;
+    text-transform: none; /* Ensure text is not all caps */
+    text-align: center; /* Center the text horizontally */
+}
 
 /*     font-family: 'Cinzel Decorative', serif;
  */
