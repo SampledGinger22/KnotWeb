@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../style/Give.css';
 
 const Give = ({ isVisible, onClose }) => {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     firstName: '',
     lastName: '',
     phoneNumber: '',
@@ -11,6 +11,7 @@ const Give = ({ isVisible, onClose }) => {
     giveTo: '',
     paymentMethod: '',
     bankAccount: '',
+    reEnterBankAccount: '',
     routingNumber: '',
     creditCardNumber: '',
     expirationDate: '',
@@ -20,43 +21,78 @@ const Give = ({ isVisible, onClose }) => {
     city: '',
     state: '',
     zipCode: '',
-  });
+  };
+
+  const [formData, setFormData] = useState(initialFormData);
+  const [error, setError] = useState('');
+
+  const formatAmount = (value) => {
+    if (!value) return '$';
+    const number = parseInt(value.replace(/[^0-9]/g, ''), 10);
+    if (isNaN(number)) return '$';
+    return `$${number.toLocaleString('en-US')}`;
+  };
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === 'checkbox' ? (checked ? value : '') : value,
-    });
+    if (name === 'amount') {
+      const formattedValue = formatAmount(value);
+      setFormData({
+        ...formData,
+        [name]: formattedValue,
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: type === 'checkbox' ? (checked ? value : '') : value,
+      });
+    }
+    setError(''); // Clear error on input change
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const dataToSend = {
-      ...formData,
-      billingAddress: {
-        street1: formData.street1,
-        street2: formData.street2,
-        city: formData.city,
-        state: formData.state,
-        zipCode: formData.zipCode,
-      },
-      paymentDetails:
-        formData.paymentMethod === 'ACH'
-          ? {
-              bankAccount: formData.bankAccount,
-              routingNumber: formData.routingNumber,
-            }
-          : formData.paymentMethod === 'CreditCard'
-          ? {
-              creditCardNumber: formData.creditCardNumber,
-              expirationDate: formData.expirationDate,
-              cvv: formData.cvv,
-            }
-          : null,
-    };
-    console.log('Data to send:', dataToSend);
-    // Add API call logic here
+
+    // Validate ACH account numbers
+    if (formData.paymentMethod === 'ACH' && formData.bankAccount !== formData.reEnterBankAccount) {
+      setError('Account Numbers Must Match.');
+      return;
+    }
+
+    // Validate required fields
+    if (!formData.firstName || !formData.lastName || !formData.email || !formData.amount || !formData.giveTo) {
+      setError('Please fill out all required fields.');
+      return;
+    }
+
+    // Simulate API call
+    try {
+      const response = await fakeApiCall(formData); // Replace with actual API call
+      if (response.success) {
+        setFormData(initialFormData); // Clear all fields on success
+        setError(''); // Clear any errors
+        onClose(); // Close the form
+      } else {
+        setError('Submission failed. Please try again.');
+      }
+    } catch (err) {
+      setError('An error occurred. Please try again.');
+    }
+  };
+
+  const handleClose = () => {
+    setFormData(initialFormData); // Clear all fields
+    setError(''); // Clear any errors
+    onClose(); // Close the form
+  };
+
+  const fakeApiCall = (data) => {
+    // Simulate an API call
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({ success: true }); // Simulate success
+      }, 1000);
+    });
   };
 
   if (!isVisible) return null;
@@ -64,13 +100,13 @@ const Give = ({ isVisible, onClose }) => {
   return (
     <div className="popup-overlay">
       <div className="popup-container">
-        <button className="close-button" onClick={onClose}>
+        <button className="close-button" onClick={handleClose}>
           &times;
         </button>
         <div className="form-header">
           <h1>Thanks for Partnering with Us!</h1>
           <p>
-            Enter your preferred donation method below along with all of your details, select the ministry or person(s) you would like to give to, and then press the donate button to process your payment.
+            Enter your preferred donation method below along with your details, select the ministry or person(s) you would like to give to, and then press the donate button to process your payment.
           </p>
         </div>
         <form onSubmit={handleSubmit} className="centered-form">
@@ -126,12 +162,11 @@ const Give = ({ isVisible, onClose }) => {
           </div>
           <input
             id="amount"
-            type="number"
+            type="text"
             name="amount"
             value={formData.amount}
             onChange={handleChange}
-            min="1"
-            step="0.01"
+            placeholder="$0"
             required
           />
           <div className="label-container">
@@ -240,6 +275,18 @@ const Give = ({ isVisible, onClose }) => {
                 required
               />
               <div className="label-container">
+                <label htmlFor="reEnterBankAccount">Re-Enter your bank account number:</label>
+              </div>
+              <input
+                id="reEnterBankAccount"
+                type="number"
+                name="reEnterBankAccount"
+                value={formData.reEnterBankAccount}
+                onChange={handleChange}
+                required
+              />
+              {error && <p className="error-text">{error}</p>}
+              <div className="label-container">
                 <label htmlFor="routingNumber">Enter your bank routing number:</label>
               </div>
               <input
@@ -293,6 +340,7 @@ const Give = ({ isVisible, onClose }) => {
               />
             </>
           )}
+          {error && <p className="error-text">{error}</p>}
           <button type="submit">Donate</button>
         </form>
       </div>

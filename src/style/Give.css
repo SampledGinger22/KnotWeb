@@ -17,6 +17,7 @@
   position: relative;
   background: white;
   padding: 20px;
+  margin: 5px;
   border-radius: 10px;
   width: 100%;
   max-width: 600px;
@@ -150,4 +151,12 @@ form button:hover {
   width: 100%;
   white-space: normal;
   word-wrap: break-word;
+}
+
+.error-text {
+  color: red;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  text-align: left;
 }

@@ -1,87 +1,114 @@
-.container {
+.primary {
+    position: relative; /* Set the container as the reference for positioning */
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
     width: 100%;
-    background-color: #F1EDE0;
-    padding: 0; /* Remove any padding */
-    margin: 0; /* Ensure no margin is applied */
-    border-radius: 5px;
-    margin-top: 10px;
-    border: solid 1px black;
+    border-radius: 10px;
+}
+
+.container {
+    position: fixed; /* Fix the container to the top of the page */
+    top: 0; /* Align the container to the top of the page */
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    width: 95%;
+    border-radius: 10px;
+    z-index: 1; /* Place the container above the background image */
+    left: 2.5%;
 }
 
 .backgroundImg {
-    width: 100%; /* Make the image flex to fit the width */
-    height: auto; 
-    min-height: 75vh;
-    max-height: 100vh; /* Ensure the image height does not exceed the viewport height */
-    border-radius: 10px;
-}                                            
-
-.upperHeader {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    position: fixed; /* Position the image fixed to the viewport */
+    top: 0; /* Align the top of the image with the top of the viewport */
+    left: 0;
     width: 100%;
-    background-color: white;
-    border: solid 1px 1px 0 1px black;
+    height: 55vh; /* Allow the height to adjust based on the image's aspect ratio */
+    object-fit: cover; /* Ensure the entire image is visible without cropping */
+    overflow: hidden;
+    z-index: 0; /* Place the image behind all other elements */
+    object-position: 0 40%; /* Position the image at the top center */
+    border: solid 3px black;
 }
 
-.lowerHeader{
+.lowerHeader {
+    position: relative; /* Ensure content is positioned relative to the container */
+    top: 4vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    background-color: #F1EDE0;
-    padding: 8px 0 8px 0;
+    height: 100%;
+    padding: 8px 0;
+    border-width: 1px 1px 0 1px;
+    color: black;
+    border-radius: 10px;
 }
 
-.nav {
+.lowerNav {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 50%;
+    width: 100%;
+    min-width: 220px;
+    max-width: 55%;
     padding: 10px;
-    background-color: #F1EDE0;
+    gap: 10px;
 }
 
-.nav a{
+.lowerNav a, .lowerNav button {
+    flex: 0; /* Prevent items from stretching */
     font-family: 'Belleza', sans-serif;
-    font-size: 2.2rem;
+    font-size: 1.3rem;
+    width: auto; /* Set width to match the text */
+    min-width: fit-content;
     font-weight: bold;
-    color: #065e69;
-    margin: 0 10px 0 10px;
-    padding: 0 10px 0 10px;
+    color: black;
+    margin: 0 10px;
+    padding: 10px;
     text-decoration: none;
     box-shadow: 2px 4px 6px black;
     border-radius: 10px;
-    color: black;
+    background-color: white;
+    border: 1px solid #065e69;
+    cursor: pointer;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+.lowerNav a:hover, .lowerNav button:hover {
+    background-color: #f0f0f0;
+    box-shadow: 2px 4px 8px black;
+    transform: translateY(1px);
 }
 
 .logo {
     width: 15%;
-    opacity: 100%;
+    min-width: 155px;
     border-radius: 100%;
     background-color: white;
     padding: 10px;
-    box-shadow: 2px 4px 8px;
+    box-shadow: 2px 4px 8px black;
+    margin: 0 0 1rem 1rem;
     max-height: 90%;
 }
 
 .summary {
-    margin: 0 10px 0 10px;
+    margin: 50px 10px 0 10px;
     font-family: 'Belleza', sans-serif;
     font-size: 1.2rem;
     background-color: white;
-    border: 1px solid #065e69;
-    padding: 5px;
+    padding: 5px 10px;
     border-radius: 10px;
-    margin-top: 50px;
     box-shadow: 2px 4px 8px;
     font-weight: bold;
-    padding-left: 10px;
-    padding-right: 10px;
 }
+
+
+/*     font-family: 'Cinzel Decorative', serif;
+ */
