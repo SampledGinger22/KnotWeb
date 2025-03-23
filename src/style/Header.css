@@ -32,7 +32,6 @@
     overflow: hidden;
     z-index: 0; /* Place the image behind all other elements */
     object-position: 0 40%; /* Position the image at the top center */
-    border: solid 3px black;
     box-sizing: border-box; /* Ensure border is included in the element's dimensions */
 }
 
@@ -72,7 +71,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    width: 99%; /* Full width */
+    width: 100%; /* Full width */
     height: 100%; /* Explicitly match the parent's height */
     min-height: fit-content;
     min-width: 220px;
@@ -90,7 +89,7 @@
     min-width: fit-content;
     font-weight: bolder;
     color: white;
-    margin: 0; /* Remove margin */
+    margin: 4px 0; /* Adjust margin */
     padding: 3px 8px; /* Add 3px of padding */
     height: 100%; /* Match the height of the containing div */
     text-decoration: none;
@@ -102,7 +101,10 @@
     border-radius: 0; /* Remove border-radius */
     align-content: center;
     transition: all 0.2s ease; /* Add smooth transition */
-    border: 1px #42898e solid;
+    border-left: 1px solid #42898e; /* Add left border */
+    border-right: 1px solid #42898e; /* Add right border */
+    border-top: none; /* Remove top border */
+    border-bottom: none; /* Remove bottom border */
 }
 
 .lowerNav a:hover {
