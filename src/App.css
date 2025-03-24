@@ -1,14 +1,16 @@
 #root {
-  width: 100%;
-  max-width: 100%; /* Change from fit-content to 100% to prevent horizontal overflow */
-  height: auto; /* Change from 100% to auto to prevent vertical overflow */
+  width: 100vw; /* Ensure it spans the full viewport width */
+  min-width: 100vw; /* Prevent horizontal overflow */
+  height: auto; /* Adjust height automatically */
   min-height: 100vh; /* Ensure it spans the full viewport height */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: top;
+  align-content: center;
+  align-items: center; /* Correct alignment for content */
   text-align: center;
   padding: 0;
   margin: 0;
   overflow-x: hidden; /* Explicitly hide horizontal overflow */
+  box-sizing: border-box; /* Ensure padding and borders are included in dimensions */
 }

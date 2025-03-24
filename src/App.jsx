@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
+import FirstFocus from './components/FirstFocus';
 
 function App() {
   const [isGiveVisible, setIsGiveVisible] = useState(false);
@@ -24,6 +25,7 @@ function App() {
     <>
       <div>
         <Header isGiveVisible={isGiveVisible} toggleGivePopup={toggleGivePopup} />
+        <FirstFocus /> 
       </div>
     </>
   );

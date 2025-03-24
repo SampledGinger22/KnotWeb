@@ -48,6 +48,7 @@
     padding: 0; /* Remove padding */
     z-index: 1; /* Ensure it appears above the background image */
     height: 60px; /* Explicitly set height */
+    max-height: 420px; /* Set maximum height */
     min-height: fit-content;
     box-sizing: border-box; /* Ensure padding and border are included in the element's dimensions */
 }
@@ -56,7 +57,8 @@
     position: absolute; /* Match the fixed positioning of the background image */
     top: 0; /* Align the top-overlay with the top of the background image */
     left: 0;
-    width: 100%;
+    width: 100vw; /* Ensure it spans the full viewport width */
+    min-width: 100vw; /* Prevent horizontal overflow */
     height: 15%; /* 10% of the height of the background image */
     background-color: rgba(128, 128, 128, 0.7); /* Semi-transparent grey */
     display: flex;
@@ -64,6 +66,9 @@
     justify-content: space-around;
     align-items: center;
     z-index: 1; /* Ensure it appears above the background image */
+    box-sizing: border-box; /* Ensure padding and borders are included in dimensions */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    padding: 0 10px; /* Add padding to the sides */
 }
 
 .lowerNav {
@@ -73,6 +78,7 @@
     align-items: center;
     width: 100%; /* Full width */
     height: 100%; /* Explicitly match the parent's height */
+    max-height: 420px; /* Set maximum height */
     min-height: fit-content;
     min-width: 220px;
     padding: 0; /* Remove padding */
@@ -105,6 +111,7 @@
     border-right: 1px solid #42898e; /* Add right border */
     border-top: none; /* Remove top border */
     border-bottom: none; /* Remove bottom border */
+    max-height: 6vh;
 }
 
 .lowerNav a:hover {
@@ -172,6 +179,99 @@
     margin-left: 10px;
     text-transform: none; /* Ensure text is not all caps */
     text-align: center; /* Center the text horizontally */
+}
+
+.header-container{
+    height: fit-content;
+    margin-bottom: 60vh;
+}
+
+.button-group {
+    display: flex;
+    flex: 1;
+    gap: 10px; /* Add gap between buttons */
+    align-items: center;
+    max-width: fit-content;
+}
+
+.contact-us-button {
+    font-family: 'Belleza', sans-serif;
+    font-size: 1.5rem; /* Match font size */
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    background-color: #065e69; /* Keep current color */
+    padding: 0 20px; /* Match padding */
+    height: calc(fit-content + 6px); /* Match height */
+    line-height: 1.5; /* Match line height */
+    border: none;
+    border-radius: 5px; /* Match border radius */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    white-space: nowrap; /* Prevent text wrapping */
+    display: inline-block; /* Ensure it stays inline */
+}
+
+.contact-us-button:hover {
+    background-color: #42898e; /* Keep hover effect */
+    transform: translateY(1px); /* Slightly move down to enhance the effect */
+}
+
+.give-now-button, .contact-us-button {
+    font-family: 'Belleza', sans-serif;
+    font-size: 1.5rem; /* Match font size */
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    padding: 0 20px; /* Match padding */
+    height: calc(fit-content + 6px); /* Match height */
+    line-height: 1.5; /* Match line height */
+    border: none;
+    border-radius: 5px; /* Match border radius */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    white-space: nowrap; /* Prevent text wrapping */
+    display: inline-block; /* Ensure it stays inline */
+}
+
+.give-now-button {
+    background-color: #DC3545;
+}
+
+.give-now-button:hover {
+    background-color: #BD2130;
+}
+
+.contact-us-button {
+    background-color: #065e69;
+}
+
+.contact-us-button:hover {
+    background-color: #42898e;
+}
+
+@media (max-width: 475px) {
+    .give-now-button, .contact-us-button {
+        font-size: 1.2rem; /* Shrink font size */
+        padding: 0 15px; /* Adjust padding */
+    }
+
+    .button-group {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 15px; /* Add vertical spacing between buttons */
+    }
+
+    .give-now-button, .contact-us-button {
+        width: 100%; /* Make buttons full width */
+        text-align: center; /* Center text inside buttons */
+    }
+}
+
+.first-focus-container {
+    margin-top: 40vh; /* Adjust margin to account for lowerNav height */
+    transition: margin-top 0.3s ease; /* Smooth adjustment when lowerNav expands */
 }
 
 /*     font-family: 'Cinzel Decorative', serif;

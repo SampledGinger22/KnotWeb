@@ -15,6 +15,16 @@
   margin: 0;
 }
 
+html, body {
+    width: 100vw; /* Ensure the HTML and body elements span the full viewport width */
+    min-width: 100vw; /* Prevent horizontal overflow */
+    height: 100%; /* Ensure full height */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Explicitly hide horizontal overflow */
+    box-sizing: border-box; /* Include padding and borders in dimensions */
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -22,9 +32,28 @@ body {
   flex-direction: column;
   justify-content: center;
   place-items: center;
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
   background-color: white;
+  overflow-y: auto; /* Enable scrolling on overflow along the y-axis */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+#root {
+    width: 100vw; /* Ensure it spans the full viewport width */
+    min-width: fit-content; /* Prevent horizontal overflow */;
+    height: auto; /* Adjust height automatically */
+    min-height: 100vh; /* Ensure it spans the full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: flex-start; /* Correct alignment for content */
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden; /* Explicitly hide horizontal overflow */
+    box-sizing: border-box; /* Ensure padding and borders are included in dimensions */
 }
 
 h1 {
