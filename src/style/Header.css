@@ -16,41 +16,23 @@
     height: auto;
     min-height: fit-content;
     width: 100%;
-    min-width: fit-content;;
+    min-width: fit-content;
     border-radius: 10px;
     z-index: 1; /* Place the container above the background image */
     left: 0;
 }
 
 .backgroundImg {
-    position: fixed; /* Position the image fixed to the viewport */
+    position: relative; /* Change fixed to relative so the image scrolls with the page */
     top: 0; /* Align the top of the image with the top of the viewport */
     left: 0;
     width: 100%; /* Adjust width to account for the 3px border on both sides */
-    height: 55vh; /* Allow the height to adjust based on the image's aspect ratio */
+    height: 80vh; /* Allow the height to adjust based on the image's aspect ratio */
     object-fit: cover; /* Ensure the entire image is visible without cropping */
+    object-position: center top; /* Position the image at the center top */
     overflow: hidden;
     z-index: 0; /* Place the image behind all other elements */
-    object-position: 0 40%; /* Position the image at the top center */
     box-sizing: border-box; /* Ensure border is included in the element's dimensions */
-}
-
-.lowerHeader {
-    position: absolute; /* Position the lowerHeader relative to the image */
-    top: 55vh; /* Start immediately after the bottom of the image */
-    left: 0; /* Flush to the left */
-    width: 100%; /* Full width */
-    background-color: #42898e; /* Background color for the bar */
-    display: flex;
-    flex-direction: row;
-    justify-content: center; /* Center the content */
-    align-items: center;
-    padding: 0; /* Remove padding */
-    z-index: 1; /* Ensure it appears above the background image */
-    height: 60px; /* Explicitly set height */
-    max-height: 407px; /* Set maximum height */
-    min-height: fit-content;
-    box-sizing: border-box; /* Ensure padding and border are included in the element's dimensions */
 }
 
 .top-overlay {
@@ -67,52 +49,71 @@
     justify-content: space-around;
     align-items: center;
     z-index: 1; /* Ensure it appears above the background image */
-    box-sizing: border-box; /* Ensure padding and borders are included in dimensions */
     overflow-x: hidden; /* Prevent horizontal overflow */
-} */
+} 
+
+.lowerHeader {
+    position: relative; /* Replace absolute positioning with relative positioning */
+    top: 0; /* Remove the top offset so it naturally follows the image */
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    background-color: #42898e;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Center the content */
+    align-items: center;
+    padding: 0; /* Remove padding */
+    z-index: 1; /* Ensure it appears above the background image */
+    height: auto !important; /* Explicit height for parent container */
+    min-height: 60px !important; /* Explicitly set height */
+    max-height: 407px; /* Set maximum height */
+    box-sizing: border-box; /* Ensure padding and border are included in the element's dimensions */
+}
 
 .lowerNav {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row; /* force links in a row */
+    flex-wrap: wrap;  /* prevent wrapping by default */
     justify-content: center;
-    align-items: center;
-    width: 100%; /* Full width */
-    height: 100%; /* Explicitly match the parent's height */
-    max-height: 420px; /* Set maximum height */
-    min-height: fit-content;
+    align-items: center; /* stretch items along the cross axis */
+    height: auto; /* size by content */
+    width: 100% !important; /* container width determined by links */
+    min-width: fit-content; /* prevent horizontal overflow */
+    margin: 0 auto; /* center the container */
     min-width: 220px;
-    padding: 0; /* Remove padding */
-    gap: 0; /* Remove gap between elements */
-    margin: 0; /* Remove margin */  
-    box-sizing: border-box; 
+    padding: 0;
+    gap: 0;
     background-color: none;
-    overflow: hidden; /* Hide excess content */
+    overflow: hidden;
 }
 
 .lowerNav a {
-    flex: 1; /* Prevent items from stretching */
-    font-family: 'lucida sans', sans-serif;
-    font-size: 1.2rem;
-    width: auto; /* Keep current width */
+    font-family: 'ABeeZee', sans-serif;
+    font-size: 1.4rem;
+    width: auto; 
     min-width: fit-content;
     max-width: 175px;
     font-weight: bolder;
     color: white;
-    padding: 0 8px; /* Add 3px of padding */
-    height: 100%; /* Match the height of the containing div */
+    padding: 0 8px; 
     text-decoration: none;
-    background-color: none; /* Match the background color of the containing div */
+    background-color: none;
     cursor: pointer;
-    line-height: 1.5;
-    box-sizing: border-box;
-    box-shadow: none; /* Remove box-shadow */
-    border-radius: 0; /* Remove border-radius */
-    align-content: center;
-    transition: all 0.2s ease; /* Add smooth transition */
-    border-left: 1px solid #346e72; /* Add left border */
-    border-right: 1px solid #346e72; /* Add right border */
-    border-top: none; /* Remove top border */
-    border-bottom: none; /* Remove bottom border */
+    box-shadow: none;
+    border-radius: 0; 
+    transition: all 0.2s ease; 
+    border-left: 1px solid #346e72; 
+    border-right: 1px solid #346e72; 
+    border-top: none; 
+    border-bottom: none; 
+    align-self: stretch; 
+    flex: 1; 
+    height: 100% !important;
+    min-height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .lowerNav a:hover {
@@ -124,7 +125,7 @@
     height: 90%; /* Scale the logo to 80% of the header bar's height */
     width: auto; /* Maintain aspect ratio */
     border-radius: 100%;
-    padding: 5px;
+    padding: 0;
 }
 
 .give-now-button {
@@ -147,17 +148,6 @@
 .give-now-button:hover {
     background-color: #BD2130;
     transform: translateY(1px); /* Slightly move down to enhance the effect */
-}
-
-.summary {
-    margin: 50px 10px 0 10px;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 1.1rem;
-    background-color: white;
-    padding: 5px 10px;
-    border-radius: 10px;
-    box-shadow: 2px 4px 8px;
-    font-weight: bold;
 }
 
 .logoContainer {
@@ -183,7 +173,7 @@
 
 .header-container{
     height: fit-content;
-    margin-bottom: 60vh;
+    margin: 0; /* Remove extra bottom margin to avoid unwanted spacing */
 }
 
 .button-group {
@@ -191,42 +181,19 @@
     flex: 1;
     gap: 10px; /* Add gap between buttons */
     align-items: center;
+    align-content: center;
     max-width: fit-content;
     margin-right: 10px;
 }
 
-.contact-us-button {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 1.1rem; /* Match font size */
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-    background-color: #639f81; /* Keep current color */
-    padding: 0 20px; /* Match padding */
-    height: calc(fit-content + 6px); /* Match height */
-    line-height: 1.5; /* Match line height */
-    border: none;
-    border-radius: 5px; /* Match border radius */
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-sizing: border-box;
-    white-space: nowrap; /* Prevent text wrapping */
-    display: inline-block; /* Ensure it stays inline */
-}
-
-.contact-us-button:hover {
-    background-color: #99bcae; /* Keep hover effect */
-    transform: translateY(1px); /* Slightly move down to enhance the effect */
-}
-
 .give-now-button, .contact-us-button {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 1.1rem; /* Match font size */
+    font-family: 'ABeeZee', sans-serif;
+    font-size: 1.3rem; /* Match font size */
     font-weight: bold;
     color: white;
     text-decoration: none;
     padding: 5px 15px; /* Match padding */
-    height: calc(fit-content + 6px); /* Match height */
+    height: fit-content; /* Match height */
     line-height: 1.5; /* Match line height */
     border: none;
     border-radius: 5px; /* Match border radius */
@@ -235,6 +202,7 @@
     box-sizing: border-box;
     white-space: nowrap; /* Prevent text wrapping */
     display: inline-block; /* Ensure it stays inline */
+    text-align: center;
 }
 
 .give-now-button {
@@ -268,6 +236,12 @@
     .give-now-button, .contact-us-button {
         width: 100%; /* Make buttons full width */
         text-align: center; /* Center text inside buttons */
+    }
+}
+
+@media (max-width: 600px) {
+    .lowerNav {
+        flex-wrap: wrap;
     }
 }
 

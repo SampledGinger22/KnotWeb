@@ -22,6 +22,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Explicitly hide horizontal overflow */
+    overflow-y: auto; /* Allow page vertical scrolling */
     box-sizing: border-box; /* Include padding and borders in dimensions */
 }
 
@@ -54,6 +55,7 @@ body {
     margin: 0;
     overflow-x: hidden; /* Explicitly hide horizontal overflow */
     box-sizing: border-box; /* Ensure padding and borders are included in dimensions */
+    position: relative;
 }
 
 h1 {

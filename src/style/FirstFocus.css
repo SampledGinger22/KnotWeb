@@ -5,11 +5,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 15vh; /* Adjust dynamically based on lowerNav height */
-    transition: margin-top 0.3s ease; /* Smooth adjustment when lowerNav expands */
-    text-align: center; /* Center text horizontally */
-    position: relative; /* Ensure proper positioning */
-    padding-top: 10px;
+    margin-top: 0; /* FirstFocus will now sit directly below the header lower nav */
+    transition: margin-top 0.3s ease;
+    text-align: center;
+    position: relative;
+    margin: 50px 0;
 }
 
 .first-focus-heading {
@@ -27,7 +27,8 @@
     justify-content: center; /* Center text horizontally */
     align-items: center; /* Center text vertically */
     word-wrap: break-word; /* Allow text to wrap if necessary */
-    overflow-wrap: break-word;}
+    overflow-wrap: break-word;
+}
 
 @media (max-width: 475px) {
     .first-focus-heading {

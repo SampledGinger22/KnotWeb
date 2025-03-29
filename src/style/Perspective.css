@@ -1,0 +1,57 @@
+.perspective-container {
+	width: 90%;
+	box-shadow: 2px 4px 8px black;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 16px;
+    color: black;
+}
+
+.card-container {
+	width: 100%;
+	min-width: fit-content;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-top: 16px;
+}
+
+.card {
+	width: 45%;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 16px;
+}
+
+.card-line {
+	width: 80%;
+	height: 1px;
+	background-color: black;
+	margin: 8px auto;
+}
+
+.values-section {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-top: 16px;
+}
+
+.values-line {
+	width: 100%;
+	height: 1px;
+	background-color: black;
+	margin: 8px 0;
+}
+
+/* Responsive card container: stack cards in column for narrow views */
+@media (max-width: 600px) {
+	.card-container {
+		flex-direction: column;
+	}
+	.card {
+		width: 100%;
+	}
+}

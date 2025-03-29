@@ -1,0 +1,11 @@
+.content-container {
+    margin-top: 0;  /* Ensure content starts at the bottom of FirstFocus */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    width: 100%;
+    min-width: fit-content;
+    height: auto;
+}

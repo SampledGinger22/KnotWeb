@@ -2,18 +2,15 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
 import FirstFocus from './components/FirstFocus';
+import Content from './components/Content';
 
 function App() {
   const [isGiveVisible, setIsGiveVisible] = useState(false);
 
   useEffect(() => {
-    if (isGiveVisible) {
-      document.body.style.overflow = 'hidden'; // Disable scrolling
-    } else {
-      document.body.style.overflow = 'auto'; // Enable scrolling
-    }
+    document.body.style.overflow = isGiveVisible ? 'hidden' : 'auto';
     return () => {
-      document.body.style.overflow = 'auto'; // Reset on unmount
+      document.body.style.overflow = 'auto';
     };
   }, [isGiveVisible]);
 
@@ -25,7 +22,8 @@ function App() {
     <>
       <div>
         <Header isGiveVisible={isGiveVisible} toggleGivePopup={toggleGivePopup} />
-        <FirstFocus /> 
+        <FirstFocus />
+        <Content />
       </div>
     </>
   );
