@@ -22,7 +22,6 @@ function App() {
     <>
       <div>
         <Header isGiveVisible={isGiveVisible} toggleGivePopup={toggleGivePopup} />
-        <FirstFocus />
         <Content />
       </div>
     </>

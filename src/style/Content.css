@@ -1,5 +1,8 @@
 .content-container {
-    margin-top: 0;  /* Ensure content starts at the bottom of FirstFocus */
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 50vh;  /* Adjust so content starts just below the header */
     display: flex;
     flex-direction: column;
     justify-content: center;

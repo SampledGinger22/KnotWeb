@@ -1,3 +1,15 @@
+.header-container{
+    position: absolute;   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    height: 40vh;
+    min-height: fit-content;
+    margin: 0; /* Remove extra bottom margin to avoid unwanted spacing */
+}
+
 .primary {
     position: relative; /* Set the container as the reference for positioning */
     display: flex;
@@ -27,9 +39,9 @@
     top: 0; /* Align the top of the image with the top of the viewport */
     left: 0;
     width: 100%; /* Adjust width to account for the 3px border on both sides */
-    height: 80vh; /* Allow the height to adjust based on the image's aspect ratio */
+    height: 100%; /* Allow the height to adjust based on the image's aspect ratio */
     object-fit: cover; /* Ensure the entire image is visible without cropping */
-    object-position: center top; /* Position the image at the center top */
+    object-position: center 36%; /* Sets bottom of displayed image 20% up from actual image bottom */
     overflow: hidden;
     z-index: 0; /* Place the image behind all other elements */
     box-sizing: border-box; /* Ensure border is included in the element's dimensions */
@@ -42,7 +54,8 @@
     width: 100vw; /* Ensure it spans the full viewport width */
     min-width: 100vw; /* Prevent horizontal overflow */
     max-width: 100%;
-    height: 16%; /* 10% of the height of the background image */
+    height: 25%; /* 10% of the height of the background image */
+    min-height: fit-content;
     background-color: rgba(128, 128, 128, 0.7); /* Semi-transparent grey */
     display: flex;
     flex-direction: row;
@@ -50,6 +63,7 @@
     align-items: center;
     z-index: 1; /* Ensure it appears above the background image */
     overflow-x: hidden; /* Prevent horizontal overflow */
+    padding: 5px 0;
 } 
 
 .lowerHeader {
@@ -88,14 +102,15 @@
 }
 
 .lowerNav a {
+    flex: 1;
     font-family: 'ABeeZee', sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     width: auto; 
     min-width: fit-content;
     max-width: 175px;
     font-weight: bolder;
     color: white;
-    padding: 0 8px; 
+    padding: 0 5px; 
     text-decoration: none;
     background-color: none;
     cursor: pointer;
@@ -171,11 +186,6 @@
     text-align: center; /* Ensure text is centered horizontally */
 }
 
-.header-container{
-    height: fit-content;
-    margin: 0; /* Remove extra bottom margin to avoid unwanted spacing */
-}
-
 .button-group {
     display: flex;
     flex: 1;
@@ -224,13 +234,14 @@
 @media (max-width: 475px) {
     .give-now-button, .contact-us-button {
         font-size: 1.1rem; /* Shrink font size */
-        padding: 0 15px; /* Adjust padding */
+        padding: 5px 15px; /* Adjust padding */;
     }
 
     .button-group {
         flex-direction: column; /* Stack buttons vertically */
-        gap: 15px; /* Add vertical spacing between buttons */
+        gap: 5px; /* Add vertical spacing between buttons */
         margin-right: 10px;
+        margin: 5px;
     }
 
     .give-now-button, .contact-us-button {
@@ -243,9 +254,4 @@
     .lowerNav {
         flex-wrap: wrap;
     }
-}
-
-.first-focus-container {
-    margin-top: 40vh; /* Adjust margin to account for lowerNav height */
-    transition: margin-top 0.3s ease; /* Smooth adjustment when lowerNav expands */
 }
