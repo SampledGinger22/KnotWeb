@@ -40,7 +40,7 @@
     top: 55vh; /* Start immediately after the bottom of the image */
     left: 0; /* Flush to the left */
     width: 100%; /* Full width */
-    background-color: #065e69; /* Background color for the bar */
+    background-color: #42898e; /* Background color for the bar */
     display: flex;
     flex-direction: row;
     justify-content: center; /* Center the content */
@@ -48,7 +48,7 @@
     padding: 0; /* Remove padding */
     z-index: 1; /* Ensure it appears above the background image */
     height: 60px; /* Explicitly set height */
-    max-height: 420px; /* Set maximum height */
+    max-height: 407px; /* Set maximum height */
     min-height: fit-content;
     box-sizing: border-box; /* Ensure padding and border are included in the element's dimensions */
 }
@@ -59,7 +59,8 @@
     left: 0;
     width: 100vw; /* Ensure it spans the full viewport width */
     min-width: 100vw; /* Prevent horizontal overflow */
-    height: 15%; /* 10% of the height of the background image */
+    max-width: 100%;
+    height: 16%; /* 10% of the height of the background image */
     background-color: rgba(128, 128, 128, 0.7); /* Semi-transparent grey */
     display: flex;
     flex-direction: row;
@@ -68,8 +69,7 @@
     z-index: 1; /* Ensure it appears above the background image */
     box-sizing: border-box; /* Ensure padding and borders are included in dimensions */
     overflow-x: hidden; /* Prevent horizontal overflow */
-    padding: 0 10px; /* Add padding to the sides */
-}
+} */
 
 .lowerNav {
     display: flex;
@@ -83,20 +83,22 @@
     min-width: 220px;
     padding: 0; /* Remove padding */
     gap: 0; /* Remove gap between elements */
-    box-sizing: border-box; /* Ensure padding and border are included in the element's dimensions */
+    margin: 0; /* Remove margin */  
+    box-sizing: border-box; 
     background-color: none;
+    overflow: hidden; /* Hide excess content */
 }
 
 .lowerNav a {
-    flex: 0; /* Prevent items from stretching */
-    font-family: 'Belleza', sans-serif;
-    font-size: 1.3rem;
+    flex: 1; /* Prevent items from stretching */
+    font-family: 'lucida sans', sans-serif;
+    font-size: 1.2rem;
     width: auto; /* Keep current width */
     min-width: fit-content;
+    max-width: 175px;
     font-weight: bolder;
     color: white;
-    margin: 4px 0; /* Adjust margin */
-    padding: 3px 8px; /* Add 3px of padding */
+    padding: 0 8px; /* Add 3px of padding */
     height: 100%; /* Match the height of the containing div */
     text-decoration: none;
     background-color: none; /* Match the background color of the containing div */
@@ -107,33 +109,29 @@
     border-radius: 0; /* Remove border-radius */
     align-content: center;
     transition: all 0.2s ease; /* Add smooth transition */
-    border-left: 1px solid #42898e; /* Add left border */
-    border-right: 1px solid #42898e; /* Add right border */
+    border-left: 1px solid #346e72; /* Add left border */
+    border-right: 1px solid #346e72; /* Add right border */
     border-top: none; /* Remove top border */
     border-bottom: none; /* Remove bottom border */
-    max-height: 6vh;
 }
 
 .lowerNav a:hover {
-    background-color: #42898e;
+    background-color: #346e72;
     transform: translateY(1px); /* Slightly move down to enhance the effect */
 }
 
 .logo {
-    height: 70%; /* Scale the logo to 80% of the header bar's height */
+    height: 90%; /* Scale the logo to 80% of the header bar's height */
     width: auto; /* Maintain aspect ratio */
     border-radius: 100%;
-    background-color: white;
-    margin: 15px 0;
     padding: 5px;
-    box-shadow: 2px 4px 8px black;
 }
 
 .give-now-button {
     height: calc(fit-content + 6px); /* Scale the button to fit content */
     padding: 0 20px; /* Adjust padding for consistent height */
-    font-family: 'Belleza', sans-serif;
-    font-size: 1.5rem;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
     font-weight: bold;
     color: white;
     text-decoration: none;
@@ -153,8 +151,8 @@
 
 .summary {
     margin: 50px 10px 0 10px;
-    font-family: 'Belleza', sans-serif;
-    font-size: 1.2rem;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem;
     background-color: white;
     padding: 5px 10px;
     border-radius: 10px;
@@ -172,13 +170,15 @@
 }
 
 .header-title {
-    font-family: 'Cinzel Decorative', serif;
-    font-weight: 700;
-    font-size: 1.5rem;
+    flex: 1;
+    display: flex;
+    font-family: "Belleza", sans-serif;
+    font-weight: 500;
+    font-size: clamp(1.4rem, 2.5vw, 1.8rem);
     color: white;
-    margin-left: 10px;
-    text-transform: none; /* Ensure text is not all caps */
-    text-align: center; /* Center the text horizontally */
+    margin-right: 10px;
+    text-transform: none; /* Capitalize the first letter of each word */
+    text-align: center; /* Ensure text is centered horizontally */
 }
 
 .header-container{
@@ -192,15 +192,16 @@
     gap: 10px; /* Add gap between buttons */
     align-items: center;
     max-width: fit-content;
+    margin-right: 10px;
 }
 
 .contact-us-button {
-    font-family: 'Belleza', sans-serif;
-    font-size: 1.5rem; /* Match font size */
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem; /* Match font size */
     font-weight: bold;
     color: white;
     text-decoration: none;
-    background-color: #065e69; /* Keep current color */
+    background-color: #639f81; /* Keep current color */
     padding: 0 20px; /* Match padding */
     height: calc(fit-content + 6px); /* Match height */
     line-height: 1.5; /* Match line height */
@@ -214,17 +215,17 @@
 }
 
 .contact-us-button:hover {
-    background-color: #42898e; /* Keep hover effect */
+    background-color: #99bcae; /* Keep hover effect */
     transform: translateY(1px); /* Slightly move down to enhance the effect */
 }
 
 .give-now-button, .contact-us-button {
-    font-family: 'Belleza', sans-serif;
-    font-size: 1.5rem; /* Match font size */
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.1rem; /* Match font size */
     font-weight: bold;
     color: white;
     text-decoration: none;
-    padding: 0 20px; /* Match padding */
+    padding: 5px 15px; /* Match padding */
     height: calc(fit-content + 6px); /* Match height */
     line-height: 1.5; /* Match line height */
     border: none;
@@ -237,30 +238,31 @@
 }
 
 .give-now-button {
-    background-color: #DC3545;
+    background-color: #ad2835;
 }
 
 .give-now-button:hover {
-    background-color: #BD2130;
+    background-color: #961b27;
 }
 
 .contact-us-button {
-    background-color: #065e69;
+    background-color: #42898e; 
 }
 
 .contact-us-button:hover {
-    background-color: #42898e;
+    background-color: #346e72;
 }
 
 @media (max-width: 475px) {
     .give-now-button, .contact-us-button {
-        font-size: 1.2rem; /* Shrink font size */
+        font-size: 1.1rem; /* Shrink font size */
         padding: 0 15px; /* Adjust padding */
     }
 
     .button-group {
         flex-direction: column; /* Stack buttons vertically */
         gap: 15px; /* Add vertical spacing between buttons */
+        margin-right: 10px;
     }
 
     .give-now-button, .contact-us-button {
@@ -273,6 +275,3 @@
     margin-top: 40vh; /* Adjust margin to account for lowerNav height */
     transition: margin-top 0.3s ease; /* Smooth adjustment when lowerNav expands */
 }
-
-/*     font-family: 'Cinzel Decorative', serif;
- */

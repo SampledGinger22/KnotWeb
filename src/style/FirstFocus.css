@@ -5,22 +5,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 40vh; /* Adjust dynamically based on lowerNav height */
+    margin-top: 15vh; /* Adjust dynamically based on lowerNav height */
     transition: margin-top 0.3s ease; /* Smooth adjustment when lowerNav expands */
     text-align: center; /* Center text horizontally */
     position: relative; /* Ensure proper positioning */
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 .first-focus-heading {
     width: 100%;
     min-width: 90vw; /* Ensure it does not exceed the viewport width */
-    font-family: 'Cinzel Decorative', serif;
+    font-family: "Belleza", sans-serif;
     font-weight: 700;
-    font-size: 1.8rem;
+    font-size: 3rem;
     text-align: center;
-    color: black; /* Set text color to black */
+    color: #534747; /* Set text color to black */
     margin-top: 0;
+    margin-bottom: 5px;
     flex: 1;
     display: flex;
     justify-content: center; /* Center text horizontally */

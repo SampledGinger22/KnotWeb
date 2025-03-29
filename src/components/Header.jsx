@@ -11,7 +11,7 @@ const Header = ({ isGiveVisible, toggleGivePopup }) => {
       <div className="top-overlay">
         <div className="logoContainer">
           <img src={Logo} className="logo" />
-          <h1 className="header-title">Gods Knot Dead</h1>
+          <h1 className="header-title">GOD'S KNOT DEAD MINISTRIES</h1>
         </div>
         <div className="button-group"> {/* Wrap buttons in a div */}
           <button className="give-now-button" onClick={toggleGivePopup}>
